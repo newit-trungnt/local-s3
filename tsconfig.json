@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "downlevelIteration": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": ["es2015", "dom"],
+    "target": "es5",
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+  }
+}

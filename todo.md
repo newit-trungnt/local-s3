@@ -1,0 +1,3 @@
+- [ ] Implement: Error handler middleware
+- [ ] Implement: Validate request by [Joi](https://github.com/hapijs/joi)
+- [ ] Optional: Format log to more than pretty
