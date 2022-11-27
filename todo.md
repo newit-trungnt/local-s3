@@ -1,3 +1,11 @@
-- [ ] Implement: Error handler middleware
-- [ ] Implement: Validate request by [Joi](https://github.com/hapijs/joi)
-- [ ] Optional: Format log to more than pretty
+## Todo
+- [ ] Implement: 
+  - [ ] Seeding data
+  - [ ] Change region
+  - [ ] Upload file
+- [ ] Option:
+  - [ ] Error handler middleware
+  - [ ] Validate request by [Joi](https://github.com/hapijs/joi)
+  - [ ] Format log to more than pretty
+  - [ ] Refactor code (FE + BE)
+  - [ ] Preview file (image, json, text, ...)

@@ -2,24 +2,23 @@ import * as express from 'express'
 
 import * as bodyParser from 'body-parser'
 import * as morgan from 'morgan'
+import * as cors from 'cors'
+import * as fileUpload from 'express-fileupload'
 
-import { Controller } from './interface'
+import { BucketController } from './controller/bucket'
+import { ObjectController } from './controller/object'
+import { Controller } from './controller'
+
+
+const controllers: Controller[] = [new BucketController(), new ObjectController()]
 
 export default class App {
   public app: express.Application
 
-  constructor(controllers: Array<Controller>) {
+  constructor() {
     this.app = express()
-    /**
-     * - connect to DB
-     * - initialize middleware
-     * - initialize controller
-     * - initialize error handler
-     */
 
-    console.log('Initialize middleware')
     this._initMiddleware()
-    console.log('Initialize controllers')
     this._initController(controllers)
   }
 
@@ -29,18 +28,18 @@ export default class App {
       console.log(`App listening on the port ${port}`)
     })
   }
+
   _initMiddleware() {
     this.app.use(bodyParser.json())
+    this.app.use(bodyParser.urlencoded({ extended: true }))
     this.app.use(morgan('combined'))
+    this.app.use(cors())
+    this.app.use(fileUpload())
   }
 
-  _initController(controllers: Array<Controller>) {
-    console.log("🚀 ~ file: app.ts ~ line 38 ~ App ~ _initController ~ controllers", controllers)
+  _initController(controllers: Controller[]) {
     controllers.forEach((controller) => {
       this.app.use('/api', controller.router)
     })
-   
   }
-
-  _initErrorHandler() {}
 }

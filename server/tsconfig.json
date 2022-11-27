@@ -2,5 +2,14 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
   },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }

@@ -1,7 +1,4 @@
-import { BucketController } from "./features/bucket"
-import { ObjectController } from "./features/object"
-
-import { Controller } from "./interface"
+import { Controller, BucketController, ObjectController } from './controller'
 
 const controllers: Controller[] = [new BucketController(), new ObjectController()]
 
