@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  localstack:
+    image: localstack/localstack:1.2.0
+    ports:
+      - 4566:4566
+    environment:
+      - EAGER_SERVICE_LOADING=1
+      - SERVICES=s3
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+  s3-gui:
+    image: abrahamlawson/local-dashboard-s3
+    ports:
+      - 3000:3000
+      - 3001:3001
+    environment:
+      - AWS_S3_ENDPOINT=http://localstack:4566
+
